@@ -66,7 +66,7 @@ module EventMachine
             @state = :connected
             @onopen.call if @onopen
             return true
-          rescue => e
+          rescue HandshakeError => e
             debug [:error, e]
             process_bad_request
             return false
